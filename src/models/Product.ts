@@ -1,4 +1,3 @@
-
 import { Model } from "sequelize";
 import db from "../shared/models/index";
 import sequelize from "sequelize";
