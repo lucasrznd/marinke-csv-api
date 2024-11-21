@@ -37,22 +37,18 @@ const config: Options = {
   "dialect": "postgres"
 }
 ```
+4. Run Jest Tests Coverage:
+   
+```
+npx jest --coverage
+```
 
-4. Set up your SonarQube configurations on **sonar-project.properties**:
+5. Set up your SonarQube configurations on **sonar-project.properties**:
 
 ```
 sonar.host.url=http://localhost:9000
 sonar.login=${LOGIN_TOKEN}
 sonar.projectKey=${PROJECT_KEY}
-sonar.projectName=marinke-csv-api
-sonar.projectVersion=1.0
-sonar.sources=src
-sonar.exclusions=**/__tests__/**,**/*.test.ts,**/*.spec.ts
-sonar.tests=src
-sonar.test.inclusions=**/*.test.ts,**/*.spec.ts
-sonar.typescript.lcov.reportPaths=coverage/lcov.info
-sonar.javascript.lcov.reportPaths=coverage/lcov.info
-sonar.sourceEncoding=UTF-8
 ```
 
 <h2 id="authors">👨🏻‍💻 Author</h2>
