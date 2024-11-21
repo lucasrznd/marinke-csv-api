@@ -1,50 +1,58 @@
-<h2 align="center">Employment Contract API</h2>
+<h2 align="center">Products CSV Api</h2>
 
 <div align="center">
   
 ![TypeScript](https://img.shields.io/badge/typescript-%23007ACC.svg?style=for-the-badge&logo=typescript&logoColor=white)
 ![Express.js](https://img.shields.io/badge/express.js-%23404d59.svg?style=for-the-badge&logo=express&logoColor=%2361DAFB)
 ![Sequelize](https://img.shields.io/badge/Sequelize-52B0E7?style=for-the-badge&logo=Sequelize&logoColor=white)
-![Postgres](https://img.shields.io/badge/postgres-%23316192.svg?style=for-the-badge&logo=postgresql&logoColor=white)
-![Docker](https://img.shields.io/badge/docker-%230db7ed.svg?style=for-the-badge&logo=docker&logoColor=white)
+![Jest](https://img.shields.io/badge/-jest-%23C21325?style=for-the-badge&logo=jest&logoColor=white)
 </div>
 
 <h2 id="description">📙 Description</h2>
 
-This API is responsible for registering employment contracts associated with a profile, the respective jobs, deposits, and payments.
-
-<h2 id="dataModel">🗄️ Data Model</h2>
-
-<img src="https://i.postimg.cc/MTyPZzyB/temp-Imagepvz-S50.avif" data-canonical-src="https://postimg.cc/62pLYJb6" width="650" height="500" />
+This API is responsible for reading a CSV file containing product data, sent through a request to the endpoint, and persisting the data in a database. It has tests for the endpoints and integrates with SonarQube.
 
 <h2 id="installation">🛠️ Installation</h2>
 
 1. Clone the repository to your local environment:
 
 ```
-git clone https://github.com/lucasrznd/employment-contract-api.git
+git clone https://github.com/lucasrznd/marinke-csv-api
 ```
 
 2. Navigate to the project directory:
 
 ```
-cd employment-contract-api
+cd marinke-csv-api
 ```
 
-3. Start the application using Docker Compose:
+3. Set up your database credentials on the **src/shared/config/database.ts** file:
 
 ```
-docker-compose up -d
+const config: Options = {
+  "username": "user",
+  "password": "1234",
+  "database": "db_csv",
+  "host": "localhost",
+  "dialect": "postgres"
+}
 ```
 
-4. Access the api container's shell and run database creation and migrations:
+4. Set up your SonarQube configurations on **sonar-project.properties**:
 
 ```
-npx sequelize db:create
-```
-
-```
-npx sequelize db:migrate
+sonar.host.url=http://localhost:9000
+sonar.login=${LOGIN_TOKEN}
+sonar.projectKey=${PROJECT_KEY}
+sonar.projectName=marinke-csv-api
+sonar.projectVersion=1.0
+sonar.sources=src
+sonar.exclusions=**/__tests__/**,**/*.test.ts,**/*.spec.ts
+sonar.tests=src
+sonar.test.inclusions=**/*.test.ts,**/*.spec.ts
+sonar.typescript.lcov.reportPaths=coverage/lcov.info
+sonar.javascript.lcov.reportPaths=coverage/lcov.info
+sonar.sourceEncoding=UTF-8
 ```
 
 <h2 id="authors">👨🏻‍💻 Author</h2>
